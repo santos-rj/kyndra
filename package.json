@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/santos-rj/kyndra/issues"
   },
-  "homepage": "https://github.com/santos-rj/kyndra#readme"
+  "homepage": "https://github.com/santos-rj/kyndra#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
 }

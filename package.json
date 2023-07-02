@@ -27,6 +27,7 @@
   "homepage": "https://github.com/santos-rj/kyndra#readme",
   "devDependencies": {
     "jest": "^29.5.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
 }

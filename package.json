@@ -4,7 +4,8 @@
   "description": "Data Structures and Algorithms make in Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "engines": {
     "node": "^18.15.0",

@@ -4,6 +4,7 @@
   "description": "Data Structures and Algorithms make in Typescript",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src/**/*.ts",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "build": "tsc"

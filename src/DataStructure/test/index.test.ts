@@ -14,4 +14,10 @@ describe("DataStructure", () => {
 
     expect(sut.data).toEqual([]);
   });
+
+  test("should create a filled Test instance without problems", async () => {
+    const sut = new Test(1, 2, 3);
+
+    expect(sut.data).toEqual([1, 2, 3]);
+  });
 });

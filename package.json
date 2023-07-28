@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/santos-rj/kyndra#readme",
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@jest/globals": "^29.6.1",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",

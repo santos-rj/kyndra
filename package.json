@@ -7,7 +7,8 @@
     "lint": "eslint src/**/*.ts",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky install"
   },
   "engines": {
     "node": "^18.15.0",

@@ -13,11 +13,15 @@ describe("DataStructure", () => {
     const sut = new Test();
 
     expect(sut.data).toEqual([]);
+    expect(sut.size).toBe(0);
   });
 
   test("should create a filled Test instance without problems", async () => {
-    const sut = new Test(1, 2, 3);
+    const data = [1, 2, 3];
 
-    expect(sut.data).toEqual([1, 2, 3]);
+    const sut = new Test(...data);
+
+    expect(sut.data).toEqual(data);
+    expect(sut.size).toBe(data.length);
   });
 });

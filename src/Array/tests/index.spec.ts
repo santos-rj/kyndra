@@ -10,5 +10,14 @@ describe("Array", () => {
       expect(sut.data).toEqual([]);
       expect(sut.size).toBe(0);
     });
+
+    test("should create a filled Array instance without problems", async () => {
+      const data = [1, 2, 3];
+
+      const sut = new Array(...data);
+
+      expect(sut.data).toEqual(data);
+      expect(sut.size).toBe(data.length);
+    });
   });
 });

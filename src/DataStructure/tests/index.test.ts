@@ -1,6 +1,6 @@
 import { describe, test, expect } from "@jest/globals";
 
-import DataStructure from "..";
+import DataStructure from "../index";
 
 describe("DataStructure", () => {
   class Test<T = number> extends DataStructure<T> {

@@ -1,4 +1,5 @@
 import { describe, test, expect } from "@jest/globals";
+import { faker } from "@faker-js/faker";
 
 import Array from "../index";
 
@@ -18,6 +19,21 @@ describe("Array", () => {
 
       expect(sut.data).toEqual(data);
       expect(sut.size).toBe(data.length);
+    });
+
+    test("should return the correct size of the array", async () => {
+      const size = faker.number.int({ min: 1, max: 200 });
+
+      const params: number[] = [];
+
+      for (let i = 0; i < size; i++) {
+        params.push(faker.number.int());
+      }
+
+      const sut = new Array(...params);
+
+      expect(sut.size).toBe(size);
+      expect(sut.data).toEqual(params);
     });
   });
 });

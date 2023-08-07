@@ -14,6 +14,20 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
     this._data.splice(0, 0, _element);
     return _element;
   }
+
+  removeFromLastPosition(): T | undefined {
+    const element = this._data[this.size - 1];
+
+    const array = new Array<T>();
+
+    for (let i = 0; i < this.size - 1; i++) {
+      array.insertInLastPosition(this._data[i]);
+    }
+
+    this._data = array.data;
+
+    return element;
+  }
 }
 
 export default Array;

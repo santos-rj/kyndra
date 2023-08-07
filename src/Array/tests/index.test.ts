@@ -79,5 +79,15 @@ describe("Array", () => {
       expect(sut.size).toBe(data.length - 1);
       expect(element).toBe(data[data.length - 1]);
     });
+
+    test("should return undefined if the array is empty", async () => {
+      const sut = new Array();
+
+      const element = sut.removeFromLastPosition();
+
+      expect(sut.data).toEqual([]);
+      expect(sut.size).toBe(0);
+      expect(element).toBeUndefined();
+    });
   });
 });

@@ -67,7 +67,7 @@ describe("Array", () => {
     });
   });
 
-  describe("removerFromLastPosition", () => {
+  describe("removeFromLastPosition", () => {
     test("should remove and return an element from the last position of the array", async () => {
       const data = [1, 2, 3, 4, 5];
 

@@ -9,6 +9,11 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
     this._data[this.size] = _element;
     return _element;
   }
+
+  insertInFirstPosition(_element: T): T {
+    this._data.splice(0, 0, _element);
+    return _element;
+  }
 }
 
 export default Array;

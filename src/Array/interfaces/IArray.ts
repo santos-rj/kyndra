@@ -19,6 +19,12 @@ interface IArray<T> {
    * @returns The element inserted at the first position.
    */
   insertInFirstPosition(_element: T): T;
+
+  /**
+   * Removes and returns an element from the last position of the structure.
+   * @returns The element removed from the last position.
+   */
+  removeFromLastPosition(): T | undefined;
 }
 
 export default IArray;

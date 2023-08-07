@@ -36,4 +36,19 @@ describe("Array", () => {
       expect(sut.data).toEqual(params);
     });
   });
+
+  describe("insertInLastPosition", () => {
+    test("should insert an element in the last position of the array", async () => {
+      const data = [1, 2, 3];
+
+      const sut = new Array(...data);
+
+      const element = faker.number.int();
+
+      sut.insertInLastPosition(element);
+
+      expect(sut.data).toEqual([...data, element]);
+      expect(sut.size).toBe(data.length + 1);
+    });
+  });
 });

@@ -51,4 +51,19 @@ describe("Array", () => {
       expect(sut.size).toBe(data.length + 1);
     });
   });
+
+  describe("insertInFirstPosition", () => {
+    test("should insert an element in the first position of the array", async () => {
+      const data = [1, 2, 3, 4, 5];
+
+      const sut = new Array(...data);
+
+      const element = faker.number.int();
+
+      sut.insertInFirstPosition(element);
+
+      expect(sut.data).toEqual([element, ...data]);
+      expect(sut.size).toBe(data.length + 1);
+    });
+  });
 });

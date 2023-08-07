@@ -66,4 +66,18 @@ describe("Array", () => {
       expect(sut.size).toBe(data.length + 1);
     });
   });
+
+  describe("removerFromLastPosition", () => {
+    test("should remove and return an element from the last position of the array", async () => {
+      const data = [1, 2, 3, 4, 5];
+
+      const sut = new Array(...data);
+
+      const element = sut.removeFromLastPosition();
+
+      expect(sut.data).toEqual(data.slice(0, data.length - 1));
+      expect(sut.size).toBe(data.length - 1);
+      expect(element).toBe(data[data.length - 1]);
+    });
+  });
 });

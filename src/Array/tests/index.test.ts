@@ -97,5 +97,17 @@ describe("Array", () => {
 
       expect(sut.removeFromFirstPosition).toBeDefined();
     });
+
+    test("should remove and return an element from the first position of the array", async () => {
+      const data = [1, 2, 3, 4, 5];
+
+      const sut = new Array(...data);
+
+      const element = sut.removeFromFirstPosition();
+
+      expect(sut.data).toEqual(data.slice(1, data.length));
+      expect(sut.size).toBe(data.length - 1);
+      expect(element).toBe(data[0]);
+    });
   });
 });

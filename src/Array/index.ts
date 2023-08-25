@@ -28,6 +28,20 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
 
     return element;
   }
+
+  removeFromFirstPosition(): T | undefined {
+    const element = this._data[0];
+
+    const array = new Array<T>();
+
+    for (let i = 1; i < this.size; i++) {
+      array.insertInLastPosition(this._data[i]);
+    }
+
+    this._data = array.data;
+
+    return element;
+  }
 }
 
 export default Array;

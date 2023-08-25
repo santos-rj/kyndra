@@ -119,5 +119,15 @@ describe("Array", () => {
       expect(sut.size).toBe(0);
       expect(element).toBeUndefined();
     });
+
+    test("should remove and return the only element from the first position of the array", async () => {
+      const sut = new Array(1);
+
+      const element = sut.removeFromFirstPosition();
+
+      expect(sut.data).toEqual([]);
+      expect(sut.size).toBe(0);
+      expect(element).toBe(1);
+    });
   });
 });

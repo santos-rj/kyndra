@@ -109,5 +109,15 @@ describe("Array", () => {
       expect(sut.size).toBe(data.length - 1);
       expect(element).toBe(data[0]);
     });
+
+    test("should remove an element and return undefined if the array is empty", async () => {
+      const sut = new Array();
+
+      const element = sut.removeFromFirstPosition();
+
+      expect(sut.data).toEqual([]);
+      expect(sut.size).toBe(0);
+      expect(element).toBeUndefined();
+    });
   });
 });

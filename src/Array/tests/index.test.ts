@@ -38,6 +38,12 @@ describe("Array", () => {
   });
 
   describe("insertInLastPosition", () => {
+    test("should be defined", async () => {
+      const sut = new Array();
+
+      expect(sut.insertInLastPosition).toBeDefined();
+    });
+
     test("should insert an element in the last position of the array", async () => {
       const data = [1, 2, 3];
 

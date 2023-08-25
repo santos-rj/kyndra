@@ -59,6 +59,12 @@ describe("Array", () => {
   });
 
   describe("insertInFirstPosition", () => {
+    test("should be defined", async () => {
+      const sut = new Array();
+
+      expect(sut.insertInFirstPosition).toBeDefined();
+    });
+
     test("should insert an element in the first position of the array", async () => {
       const data = [1, 2, 3, 4, 5];
 

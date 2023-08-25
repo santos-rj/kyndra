@@ -25,6 +25,13 @@ interface IArray<T> {
    * @returns The element removed from the last position.
    */
   removeFromLastPosition(): T | undefined;
+
+  /**
+   * Removes and returns an element from the first position of the structure.
+   *
+   * @returns The element removed from the first position.
+   */
+  removeFromFirstPosition(): T | undefined;
 }
 
 export default IArray;

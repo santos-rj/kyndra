@@ -90,4 +90,12 @@ describe("Array", () => {
       expect(element).toBeUndefined();
     });
   });
+
+  describe("removeFromFirstPosition", () => {
+    test("should be defined", async () => {
+      const sut = new Array();
+
+      expect(sut.removeFromFirstPosition).toBeDefined();
+    });
+  });
 });

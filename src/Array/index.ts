@@ -42,6 +42,10 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
 
     return element;
   }
+
+  insertInPosition(_element: T, _position: number): T {
+    throw new Error("Method not implemented.");
+  }
 }
 
 export default Array;

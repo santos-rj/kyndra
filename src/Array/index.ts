@@ -44,7 +44,8 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
   }
 
   insertInPosition(_element: T, _position: number): T {
-    throw new Error("Method not implemented.");
+    this._data.splice(_position, 0, _element);
+    return _element;
   }
 }
 

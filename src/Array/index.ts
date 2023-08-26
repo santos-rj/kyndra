@@ -11,8 +11,7 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
   }
 
   insertInFirstPosition(_element: T): T {
-    this._data.splice(0, 0, _element);
-    return _element;
+    return this.insertInPosition(_element, 0);
   }
 
   removeFromLastPosition(): T | undefined {

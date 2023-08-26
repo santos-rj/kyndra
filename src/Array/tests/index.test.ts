@@ -80,7 +80,6 @@ describe("Array", () => {
   });
 
   describe("removeFromLastPosition", () => {
-
     test("should be defined", async () => {
       const sut = new Array();
 
@@ -147,6 +146,14 @@ describe("Array", () => {
       expect(sut.data).toEqual([]);
       expect(sut.size).toBe(0);
       expect(element).toBe(1);
+    });
+  });
+
+  describe("insertInPosition", () => {
+    test("should be defined", async () => {
+      const sut = new Array();
+
+      expect(sut.insertInPosition).toBeDefined();
     });
   });
 });

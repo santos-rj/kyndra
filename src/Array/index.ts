@@ -5,16 +5,17 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
   constructor(...inputs: T[]) {
     super(inputs);
   }
-  insertInLastPosition(_element: T): T {
+
+  public insertInLastPosition(_element: T): T {
     this._data[this.size] = _element;
     return _element;
   }
 
-  insertInFirstPosition(_element: T): T {
+  public insertInFirstPosition(_element: T): T {
     return this.insertInPosition(_element, 0);
   }
 
-  removeFromLastPosition(): T | undefined {
+  public removeFromLastPosition(): T | undefined {
     const element = this._data[this.size - 1];
 
     const array = new Array<T>();
@@ -28,7 +29,7 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
     return element;
   }
 
-  removeFromFirstPosition(): T | undefined {
+  public removeFromFirstPosition(): T | undefined {
     const element = this._data[0];
 
     const array = new Array<T>();
@@ -42,7 +43,7 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
     return element;
   }
 
-  insertInPosition(_element: T, _position: number): T {
+  public insertInPosition(_element: T, _position: number): T {
     this._data.splice(_position, 0, _element);
     return _element;
   }

@@ -4,174 +4,176 @@ import { faker } from "@faker-js/faker";
 import Array from "../index";
 
 describe("Array", () => {
-  describe("constructor", () => {
-    test("should create an empty Array instance without problems", async () => {
-      const sut = new Array();
+  describe("Methods", () => {
+    describe("constructor", () => {
+      test("should create an empty Array instance without problems", async () => {
+        const sut = new Array();
 
-      expect(sut.data).toEqual([]);
-      expect(sut.size).toBe(0);
+        expect(sut.data).toEqual([]);
+        expect(sut.size).toBe(0);
+      });
+
+      test("should create a filled Array instance without problems", async () => {
+        const data = [1, 2, 3];
+
+        const sut = new Array(...data);
+
+        expect(sut.data).toEqual(data);
+        expect(sut.size).toBe(data.length);
+      });
+
+      test("should return the correct size of the array", async () => {
+        const size = faker.number.int({ min: 1, max: 200 });
+
+        const params: number[] = [];
+
+        for (let i = 0; i < size; i++) {
+          params.push(faker.number.int());
+        }
+
+        const sut = new Array(...params);
+
+        expect(sut.size).toBe(size);
+        expect(sut.data).toEqual(params);
+      });
     });
 
-    test("should create a filled Array instance without problems", async () => {
-      const data = [1, 2, 3];
+    describe("insertInLastPosition", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
 
-      const sut = new Array(...data);
+        expect(sut.insertInLastPosition).toBeDefined();
+      });
 
-      expect(sut.data).toEqual(data);
-      expect(sut.size).toBe(data.length);
+      test("should insert an element in the last position of the array", async () => {
+        const data = [1, 2, 3];
+
+        const sut = new Array(...data);
+
+        const element = faker.number.int();
+
+        sut.insertInLastPosition(element);
+
+        expect(sut.data).toEqual([...data, element]);
+        expect(sut.size).toBe(data.length + 1);
+      });
     });
 
-    test("should return the correct size of the array", async () => {
-      const size = faker.number.int({ min: 1, max: 200 });
+    describe("insertInFirstPosition", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
 
-      const params: number[] = [];
+        expect(sut.insertInFirstPosition).toBeDefined();
+      });
 
-      for (let i = 0; i < size; i++) {
-        params.push(faker.number.int());
-      }
+      test("should insert an element in the first position of the array", async () => {
+        const data = [1, 2, 3, 4, 5];
 
-      const sut = new Array(...params);
+        const sut = new Array(...data);
 
-      expect(sut.size).toBe(size);
-      expect(sut.data).toEqual(params);
-    });
-  });
+        const element = faker.number.int();
 
-  describe("insertInLastPosition", () => {
-    test("should be defined", async () => {
-      const sut = new Array();
+        sut.insertInFirstPosition(element);
 
-      expect(sut.insertInLastPosition).toBeDefined();
+        expect(sut.data).toEqual([element, ...data]);
+        expect(sut.size).toBe(data.length + 1);
+      });
     });
 
-    test("should insert an element in the last position of the array", async () => {
-      const data = [1, 2, 3];
+    describe("removeFromLastPosition", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
 
-      const sut = new Array(...data);
+        expect(sut.removeFromLastPosition).toBeDefined();
+      });
 
-      const element = faker.number.int();
+      test("should remove and return an element from the last position of the array", async () => {
+        const data = [1, 2, 3, 4, 5];
 
-      sut.insertInLastPosition(element);
+        const sut = new Array(...data);
 
-      expect(sut.data).toEqual([...data, element]);
-      expect(sut.size).toBe(data.length + 1);
-    });
-  });
+        const element = sut.removeFromLastPosition();
 
-  describe("insertInFirstPosition", () => {
-    test("should be defined", async () => {
-      const sut = new Array();
+        expect(sut.data).toEqual(data.slice(0, data.length - 1));
+        expect(sut.size).toBe(data.length - 1);
+        expect(element).toBe(data[data.length - 1]);
+      });
 
-      expect(sut.insertInFirstPosition).toBeDefined();
-    });
+      test("should return undefined if the array is empty", async () => {
+        const sut = new Array();
 
-    test("should insert an element in the first position of the array", async () => {
-      const data = [1, 2, 3, 4, 5];
+        const element = sut.removeFromLastPosition();
 
-      const sut = new Array(...data);
-
-      const element = faker.number.int();
-
-      sut.insertInFirstPosition(element);
-
-      expect(sut.data).toEqual([element, ...data]);
-      expect(sut.size).toBe(data.length + 1);
-    });
-  });
-
-  describe("removeFromLastPosition", () => {
-    test("should be defined", async () => {
-      const sut = new Array();
-
-      expect(sut.removeFromLastPosition).toBeDefined();
+        expect(sut.data).toEqual([]);
+        expect(sut.size).toBe(0);
+        expect(element).toBeUndefined();
+      });
     });
 
-    test("should remove and return an element from the last position of the array", async () => {
-      const data = [1, 2, 3, 4, 5];
+    describe("removeFromFirstPosition", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
 
-      const sut = new Array(...data);
+        expect(sut.removeFromFirstPosition).toBeDefined();
+      });
 
-      const element = sut.removeFromLastPosition();
+      test("should remove and return an element from the first position of the array", async () => {
+        const data = [1, 2, 3, 4, 5];
 
-      expect(sut.data).toEqual(data.slice(0, data.length - 1));
-      expect(sut.size).toBe(data.length - 1);
-      expect(element).toBe(data[data.length - 1]);
+        const sut = new Array(...data);
+
+        const element = sut.removeFromFirstPosition();
+
+        expect(sut.data).toEqual(data.slice(1, data.length));
+        expect(sut.size).toBe(data.length - 1);
+        expect(element).toBe(data[0]);
+      });
+
+      test("should remove an element and return undefined if the array is empty", async () => {
+        const sut = new Array();
+
+        const element = sut.removeFromFirstPosition();
+
+        expect(sut.data).toEqual([]);
+        expect(sut.size).toBe(0);
+        expect(element).toBeUndefined();
+      });
+
+      test("should remove and return the only element from the first position of the array", async () => {
+        const sut = new Array(1);
+
+        const element = sut.removeFromFirstPosition();
+
+        expect(sut.data).toEqual([]);
+        expect(sut.size).toBe(0);
+        expect(element).toBe(1);
+      });
     });
 
-    test("should return undefined if the array is empty", async () => {
-      const sut = new Array();
+    describe("insertInPosition", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
 
-      const element = sut.removeFromLastPosition();
+        expect(sut.insertInPosition).toBeDefined();
+      });
 
-      expect(sut.data).toEqual([]);
-      expect(sut.size).toBe(0);
-      expect(element).toBeUndefined();
-    });
-  });
+      test("should insert an element in a specific position of the array and return this element", async () => {
+        const sut = new Array(1, 2, 3, 4, 5);
 
-  describe("removeFromFirstPosition", () => {
-    test("should be defined", async () => {
-      const sut = new Array();
+        const element = faker.number.int();
 
-      expect(sut.removeFromFirstPosition).toBeDefined();
-    });
+        const position = faker.number.int({ min: 0, max: sut.size - 1 });
 
-    test("should remove and return an element from the first position of the array", async () => {
-      const data = [1, 2, 3, 4, 5];
+        const expected = [
+          ...sut.data.slice(0, position),
+          element,
+          ...sut.data.slice(position, sut.size),
+        ];
 
-      const sut = new Array(...data);
+        sut.insertInPosition(element, position);
 
-      const element = sut.removeFromFirstPosition();
-
-      expect(sut.data).toEqual(data.slice(1, data.length));
-      expect(sut.size).toBe(data.length - 1);
-      expect(element).toBe(data[0]);
-    });
-
-    test("should remove an element and return undefined if the array is empty", async () => {
-      const sut = new Array();
-
-      const element = sut.removeFromFirstPosition();
-
-      expect(sut.data).toEqual([]);
-      expect(sut.size).toBe(0);
-      expect(element).toBeUndefined();
-    });
-
-    test("should remove and return the only element from the first position of the array", async () => {
-      const sut = new Array(1);
-
-      const element = sut.removeFromFirstPosition();
-
-      expect(sut.data).toEqual([]);
-      expect(sut.size).toBe(0);
-      expect(element).toBe(1);
-    });
-  });
-
-  describe("insertInPosition", () => {
-    test("should be defined", async () => {
-      const sut = new Array();
-
-      expect(sut.insertInPosition).toBeDefined();
-    });
-
-    test("should insert an element in a specific position of the array and return this element", async () => {
-      const sut = new Array(1, 2, 3, 4, 5);
-
-      const element = faker.number.int();
-
-      const position = faker.number.int({ min: 0, max: sut.size - 1 });
-
-      const expected = [
-        ...sut.data.slice(0, position),
-        element,
-        ...sut.data.slice(position, sut.size),
-      ];
-
-      sut.insertInPosition(element, position);
-
-      expect(sut.data).toEqual(expected);
+        expect(sut.data).toEqual(expected);
+      });
     });
   });
 });

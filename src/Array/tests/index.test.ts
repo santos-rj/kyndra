@@ -175,6 +175,26 @@ describe("Array", () => {
         expect(sut.data).toEqual(expected);
       });
     });
+
+    describe("Conversion to primitive types", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
+
+        expect(sut[Symbol.toPrimitive]).toBeDefined();
+      });
+
+      test("should return array elements separated by comma when converted to string", async () => {
+        const mockData = new Array(1, 2, 3, 4, 5);
+
+        const sut = new Array(mockData);
+
+        const expectedResult = mockData.data.join(", ");
+
+        const resultOfConversion = String(sut);
+
+        expect(resultOfConversion).toBe(expectedResult);
+      });
+    });
   });
 
   describe("Array Multidimensional", () => {

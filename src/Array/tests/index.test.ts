@@ -186,13 +186,25 @@ describe("Array", () => {
       test("should return array elements separated by comma when converted to string", async () => {
         const mockData = new Array(1, 2, 3, 4, 5);
 
-        const sut = new Array(mockData);
+        const sut = new Array(...mockData.data);
 
         const expectedResult = mockData.data.join(", ");
 
         const resultOfConversion = String(sut);
 
-        expect(resultOfConversion).toBe(expectedResult);
+        expect(resultOfConversion).toEqual(expectedResult);
+      });
+
+      test("should return the size of the array when converted to number", async () => {
+        const mockData = new Array(1, 2, 3, 4, 5);
+
+        const sut = new Array(...mockData.data);
+
+        const expectedResult = mockData.size;
+
+        const resultOfConversion = Number(sut);
+
+        expect(resultOfConversion).toEqual(expectedResult);
       });
     });
   });

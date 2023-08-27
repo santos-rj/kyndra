@@ -188,8 +188,8 @@ describe("Array", () => {
 
       test("should create a filled bidimensional Array instance without problems", async () => {
         const mockData = new Array<Array<number>>(
-          new Array(1, 2, 3),
-          new Array(4, 5, 6)
+          new Array(1, 2, 3, 4, 5),
+          new Array(6, 7, 8, 9, 10)
         );
 
         const sut = new Array<Array<number>>(
@@ -215,6 +215,34 @@ describe("Array", () => {
 
       expect(sut.data).toEqual([]);
       expect(sut.size).toBe(0);
+    });
+
+    test("should create a filled tridimensional Array instance without problems", async () => {
+      const mockData = new Array<Array<Array<number>>>(
+        new Array<Array<number>>(
+          new Array(1, 2, 3),
+          new Array(4, 5, 6),
+          new Array(7, 8, 9)
+        ),
+        new Array<Array<number>>(
+          new Array(10, 11, 12),
+          new Array(13, 14, 15),
+          new Array(16, 17, 18)
+        ),
+        new Array<Array<number>>(
+          new Array(19, 20, 21),
+          new Array(22, 23, 24),
+          new Array(25, 26, 27)
+        )
+      );
+
+      const sut = new Array<Array<Array<number>>>(
+        mockData.data[0],
+        mockData.data[1],
+        mockData.data[2]
+      );
+
+      expect(sut.data).toEqual(mockData.data);
     });
   });
 });

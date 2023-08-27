@@ -206,6 +206,16 @@ describe("Array", () => {
 
         expect(resultOfConversion).toEqual(expectedResult);
       });
+
+      test("should return true when converted to other primitive type", async () => {
+        const mockData = new Array(1, 2, 3, 4, 5);
+
+        const sut = new Array(...mockData.data);
+
+        const resultOfConversion = Boolean(sut);
+
+        expect(resultOfConversion).toBeTruthy();
+      });
     });
   });
 

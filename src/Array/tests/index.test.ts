@@ -155,5 +155,23 @@ describe("Array", () => {
 
       expect(sut.insertInPosition).toBeDefined();
     });
+
+    test("should insert an element in a specific position of the array and return this element", async () => {
+      const sut = new Array(1, 2, 3, 4, 5);
+
+      const element = faker.number.int();
+
+      const position = faker.number.int({ min: 0, max: sut.size - 1 });
+
+      const expected = [
+        ...sut.data.slice(0, position),
+        element,
+        ...sut.data.slice(position, sut.size),
+      ];
+
+      sut.insertInPosition(element, position);
+
+      expect(sut.data).toEqual(expected);
+    });
   });
 });

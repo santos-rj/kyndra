@@ -176,4 +176,13 @@ describe("Array", () => {
       });
     });
   });
+
+  describe("Array Bidimensional", () => {
+    test("should create an empty Array instance without problems", async () => {
+      const sut = new Array<Array<number>>();
+
+      expect(sut.data).toEqual([]);
+      expect(sut.size).toBe(0);
+    });
+  });
 });

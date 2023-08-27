@@ -177,30 +177,44 @@ describe("Array", () => {
     });
   });
 
-  describe("Array Bidimensional", () => {
-    test("should create an empty Array instance without problems", async () => {
-      const sut = new Array<Array<number>>();
+  describe("Array Multidimensional", () => {
+    describe("Array Bidimensional", () => {
+      test("should create an empty bidimensional Array instance without problems", async () => {
+        const sut = new Array<Array<number>>();
+
+        expect(sut.data).toEqual([]);
+        expect(sut.size).toBe(0);
+      });
+
+      test("should create a filled bidimensional Array instance without problems", async () => {
+        const mockData = new Array<Array<number>>(
+          new Array(1, 2, 3),
+          new Array(4, 5, 6)
+        );
+
+        const sut = new Array<Array<number>>(
+          mockData.data[0],
+          mockData.data[1]
+        );
+
+        expect(sut.data).toEqual(mockData.data);
+        expect(sut.size).toBe(mockData.size);
+
+        expect(sut.data[0].data).toEqual(mockData.data[0].data);
+        expect(sut.data[0].size).toBe(mockData.data[0].size);
+
+        expect(sut.data[1].data).toEqual(mockData.data[1].data);
+        expect(sut.data[1].size).toBe(mockData.data[1].size);
+      });
+    });
+  });
+
+  describe("Array Tridimensional", () => {
+    test("should create an empty tridimensional Array instance without problems", async () => {
+      const sut = new Array<Array<Array<number>>>();
 
       expect(sut.data).toEqual([]);
       expect(sut.size).toBe(0);
-    });
-
-    test("should create a filled Array instance without problems", async () => {
-      const mockData = new Array<Array<number>>(
-        new Array(1, 2, 3),
-        new Array(4, 5, 6)
-      );
-
-      const sut = new Array<Array<number>>(mockData.data[0], mockData.data[1]);
-
-      expect(sut.data).toEqual(mockData.data);
-      expect(sut.size).toBe(mockData.size);
-
-      expect(sut.data[0].data).toEqual(mockData.data[0].data);
-      expect(sut.data[0].size).toBe(mockData.data[0].size);
-
-      expect(sut.data[1].data).toEqual(mockData.data[1].data);
-      expect(sut.data[1].size).toBe(mockData.data[1].size);
     });
   });
 });

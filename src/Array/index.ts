@@ -47,6 +47,18 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
     this._data.splice(_position, 0, _element);
     return _element;
   }
+
+  private [Symbol.toPrimitive](
+    type: "string" | "number" | "default"
+  ): string | number | boolean {
+    const primitives = {
+      number: this.size,
+      string: this.data.join(", "),
+      default: true,
+    };
+
+    return primitives[type];
+  }
 }
 
 export default Array;

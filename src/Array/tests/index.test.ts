@@ -182,6 +182,24 @@ describe("Array", () => {
 
         expect(sut.removeFromPosition).toBeDefined();
       });
+
+      test("should remove and return an element from a specific position of the array", async () => {
+        const mockData = [1, 2, 3, 4, 5];
+
+        const sut = new Array(...mockData);
+
+        const position = faker.number.int({ min: 0, max: sut.size - 1 });
+
+        const expected = [
+          ...sut.data.slice(0, position),
+          ...sut.data.slice(position + 1, sut.size),
+        ];
+
+        const element = sut.removeFromPosition(position);
+
+        expect(sut.data).toEqual(expected);
+        expect(element).toBe(mockData[position]);
+      });
     });
 
     describe("Conversion to primitive types", () => {

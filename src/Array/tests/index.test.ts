@@ -176,6 +176,14 @@ describe("Array", () => {
       });
     });
 
+    describe("removeFromPosition", () => {
+      test("should be defined", async () => {
+        const sut = new Array();
+
+        expect(sut.removeFromPosition).toBeDefined();
+      });
+    });
+
     describe("Conversion to primitive types", () => {
       test("should be defined", async () => {
         const sut = new Array();

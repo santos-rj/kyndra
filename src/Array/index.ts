@@ -48,6 +48,10 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
     return _element;
   }
 
+  public removeFromPosition(_position: number): T | undefined {
+    throw new Error("Method not implemented.");
+  }
+
   private [Symbol.toPrimitive](
     type: "string" | "number" | "default"
   ): string | number | boolean {

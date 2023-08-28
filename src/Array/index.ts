@@ -49,7 +49,19 @@ class Array<T = number> extends DataStructure<T> implements IArray<T> {
   }
 
   public removeFromPosition(_position: number): T | undefined {
-    throw new Error("Method not implemented.");
+    const element = this._data[_position];
+
+    const array = new Array<T>();
+
+    for (let i = 0; i < this.size; i++) {
+      if (i !== _position) {
+        array.insertInLastPosition(this._data[i]);
+      }
+    }
+
+    this._data = array.data;
+
+    return element;
   }
 
   private [Symbol.toPrimitive](

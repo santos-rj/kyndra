@@ -39,6 +39,12 @@ interface IArray<T> {
    * @param _position The position where the element will be inserted.
    */
   insertInPosition(_element: T, _position: number): T;
+
+  /**
+   * Removes and returns an element from a specific position of the structure.
+   * @param _position The position where the element will be removed.
+   */
+  removeFromPosition(_position: number): T | undefined;
 }
 
 export default IArray;

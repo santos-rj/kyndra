@@ -10,6 +10,15 @@ describe("Stack", () => {
         expect(sut.data).toEqual([]);
         expect(sut.size).toBe(0);
       });
+
+      test("should create a filled Stack instance without problems", async () => {
+        const data = [1, 2, 3];
+
+        const sut = new Stack(...data);
+
+        expect(sut.data).toEqual(data);
+        expect(sut.size).toBe(data.length);
+      });
     });
   });
 });

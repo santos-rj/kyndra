@@ -10,6 +10,12 @@ interface IStack<T> {
    * @returns The element at the top of the stack.
    */
   pop(): T | undefined;
+
+  /**
+   * Returns the element at the top of the stack without removing it.
+   * @returns The element at the top of the stack.
+   */
+  peek(): T | undefined;
 }
 
 export default IStack;

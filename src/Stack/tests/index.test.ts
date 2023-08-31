@@ -89,5 +89,13 @@ describe("Stack", () => {
         expect(sut.data).toEqual(elements.slice(0, size - 1));
       });
     });
+
+    describe("peek", () => {
+      test("should be defined", async () => {
+        const sut = new Stack();
+
+        expect(sut.peek).toBeDefined();
+      });
+    });
   });
 });

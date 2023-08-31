@@ -8,8 +8,9 @@ class Stack<T = number> extends DataStructure<T> implements IStack<T> {
     super(inputs);
   }
 
-  push(...elements: T[]): void {
+  push(...elements: T[]): T[] {
     this._data.push(...elements);
+    return elements;
   }
 
   pop(): T | undefined {

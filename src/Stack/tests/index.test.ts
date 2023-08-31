@@ -43,6 +43,23 @@ describe("Stack", () => {
 
         expect(sut.push).toBeDefined();
       });
+
+      test("should push an elements to the stack", async () => {
+        const sut = new Stack();
+
+        const size = faker.number.int({ min: 1, max: 200 });
+
+        let elements: number[] = [];
+
+        for (let i = 0; i < size; i++) {
+          elements.push(i);
+        }
+
+        sut.push(...elements);
+
+        expect(sut.data).toEqual(elements);
+        expect(sut.size).toBe(size);
+      });
     });
   });
 });

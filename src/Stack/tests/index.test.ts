@@ -61,5 +61,13 @@ describe("Stack", () => {
         expect(sut.size).toBe(size);
       });
     });
+
+    describe("pop", () => {
+      test("should be defined", async () => {
+        const sut = new Stack();
+
+        expect(sut.pop).toBeDefined();
+      });
+    });
   });
 });

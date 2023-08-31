@@ -96,6 +96,26 @@ describe("Stack", () => {
 
         expect(sut.peek).toBeDefined();
       });
+
+      test("should return the first element from the stack", async () => {
+        const sut = new Stack();
+
+        const size = faker.number.int({ min: 1, max: 200 });
+
+        let elements: number[] = [];
+
+        for (let i = 0; i < size; i++) {
+          elements.push(i);
+        }
+
+        sut.push(...elements);
+
+        const peekedElement = sut.peek();
+
+        expect(peekedElement).toBe(elements[size - 1]);
+        expect(sut.size).toBe(size);
+        expect(sut.data).toEqual(elements);
+      });
     });
   });
 });

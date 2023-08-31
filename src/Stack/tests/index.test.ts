@@ -36,5 +36,13 @@ describe("Stack", () => {
         expect(sut.data).toEqual(params);
       });
     });
+
+    describe("push", () => {
+      test("should be defined", async () => {
+        const sut = new Stack();
+
+        expect(sut.push).toBeDefined();
+      });
+    });
   });
 });

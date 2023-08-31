@@ -15,6 +15,10 @@ class Stack<T = number> extends DataStructure<T> implements IStack<T> {
   pop(): T | undefined {
     return this._data.pop();
   }
+
+  peek(): T | undefined {
+    return this._data[this._data.length - 1];
+  }
 }
 
 export default Stack;

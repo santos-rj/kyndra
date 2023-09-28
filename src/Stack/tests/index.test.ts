@@ -124,6 +124,12 @@ describe("Stack", () => {
 
         expect(sut.isEmpty).toBeDefined();
       });
+
+      test("should return true if the stack is empty", async () => {
+        const sut = new Stack();
+
+        expect(sut.isEmpty()).toBe(true);
+      });
     });
   });
 });

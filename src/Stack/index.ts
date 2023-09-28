@@ -21,7 +21,7 @@ class Stack<T = number> extends DataStructure<T> implements IStack<T> {
   }
 
   isEmpty(): boolean {
-    throw new Error("Method not implemented.");
+    return this._data.length === 0;
   }
 }
 

@@ -19,6 +19,10 @@ class Stack<T = number> extends DataStructure<T> implements IStack<T> {
   peek(): T | undefined {
     return this._data[this._data.length - 1];
   }
+
+  isEmpty(): boolean {
+    throw new Error("Method not implemented.");
+  }
 }
 
 export default Stack;

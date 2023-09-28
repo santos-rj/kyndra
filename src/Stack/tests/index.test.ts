@@ -117,5 +117,13 @@ describe("Stack", () => {
         expect(sut.data).toEqual(elements);
       });
     });
+
+    describe("isEmpty", () => {
+      test("should be defined", async () => {
+        const sut = new Stack();
+
+        expect(sut.isEmpty).toBeDefined();
+      });
+    });
   });
 });

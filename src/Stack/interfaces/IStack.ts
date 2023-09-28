@@ -16,6 +16,12 @@ interface IStack<T> {
    * @returns The element at the top of the stack.
    */
   peek(): T | undefined;
+
+  /**
+   * Returns if the stack is empty.
+   * @returns If the stack is empty.
+   */
+  isEmpty(): boolean;
 }
 
 export default IStack;

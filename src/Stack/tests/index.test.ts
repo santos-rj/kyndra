@@ -130,6 +130,12 @@ describe("Stack", () => {
 
         expect(sut.isEmpty()).toBe(true);
       });
+
+      test("should return false if the stack is not empty", async () => {
+        const sut = new Stack(1);
+
+        expect(sut.isEmpty()).toBe(false);
+      });
     });
   });
 });

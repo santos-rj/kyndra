@@ -1,7 +1,6 @@
 import DataStructure from "../DataStructure";
 
 import IStack from "./interfaces/IStack";
-("./interfaces/IStack");
 
 class Stack<T = number> extends DataStructure<T> implements IStack<T> {
   constructor(...inputs: T[]) {

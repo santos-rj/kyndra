@@ -25,7 +25,7 @@ class Stack<T = number> extends DataStructure<T> implements IStack<T> {
   }
 
   clear(): void {
-    throw new Error("Method not implemented.");
+    this._data = [];
   }
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "kyndra",
+  "name": "@santosrj/kyndra",
   "version": "1.0.0",
   "description": "Data Structures and Algorithms make in Typescript",
   "main": "index.js",

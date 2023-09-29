@@ -1,0 +1,44 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches:
+      - master
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: exit 0
+  publish:
+    needs:
+      - ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - run: pnpm install --recursive --frozen-lockfile --strict-peer-dependencies
+      - run: pnpm run build
+      - run: pnpm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true

@@ -144,6 +144,14 @@ describe("Stack", () => {
 
         expect(sut.clear).toBeDefined();
       });
+
+      test("should clear the stack", async () => {
+        const sut = new Stack(1, 2, 3);
+
+        sut.clear();
+
+        expect(sut.isEmpty()).toBe(true);
+      });
     });
   });
 });

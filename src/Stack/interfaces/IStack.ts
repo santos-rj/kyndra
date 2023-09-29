@@ -22,6 +22,11 @@ interface IStack<T> {
    * @returns If the stack is empty.
    */
   isEmpty(): boolean;
+
+  /**
+   * Removes all elements from the stack.
+   */
+  clear(): void;
 }
 
 export default IStack;

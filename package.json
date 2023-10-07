@@ -2,7 +2,7 @@
   "name": "@santosrj/kyndra",
   "version": "1.0.0",
   "description": "Data Structures and Algorithms make in Typescript",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "reinstall": "pnpm dlx rimraf node_modules && pnpm install --recursive --frozen-lockfile --strict-peer-dependencies",
@@ -23,6 +23,13 @@
     "type": "git",
     "url": "git+https://github.com/santos-rj/kyndra.git"
   },
+  "files": [
+    "build",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
   "keywords": [
     "data",
     "structures",

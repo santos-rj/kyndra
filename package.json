@@ -4,12 +4,16 @@
   "description": "Data Structures and Algorithms make in Typescript",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "reinstall": "pnpm dlx rimraf node_modules && pnpm install --recursive --frozen-lockfile --strict-peer-dependencies",
+    "prepare": "husky install",
+    "---------- Lint and Format ---------": "",
     "lint": "eslint src/**/*.ts",
+    "---------- Tests ---------": "",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "build": "tsc",
-    "prebuild": "pnpx rimraf ./build",
-    "prepare": "husky install"
+    "---------- Build ---------": "",
+    "build": "pnpm dlx rimraf ./build && tsc"
   },
   "engines": {
     "node": "^18.15.0",

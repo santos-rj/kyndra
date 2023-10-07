@@ -16,18 +16,6 @@ jobs:
     steps:
       - run: exit 0
 
-  check-build:
-    name: Check production code build
-    needs: [ci]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Check directory contents ./build
-        run: ls -l ./build
-        working-directory: ./build
-
   publish:
     needs: [ci]
     runs-on: ubuntu-latest

@@ -2,7 +2,7 @@
   "name": "@santosrj/kyndra",
   "version": "1.0.0",
   "description": "Data Structures and Algorithms make in Typescript",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "reinstall": "pnpm dlx rimraf node_modules && pnpm install --recursive --frozen-lockfile --strict-peer-dependencies",

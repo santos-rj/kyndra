@@ -1,4 +1,5 @@
 name: CD
+
 on:
   workflow_run:
     workflows: ["CI"]
@@ -14,9 +15,21 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: exit 0
+
+  check-build:
+    name: Check production code build
+    needs: [ci]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Check directory contents ./build
+        run: ls -l ./build
+        working-directory: ./build
+
   publish:
-    needs:
-      - ci
+    needs: [ci]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,9 +46,10 @@ jobs:
         with:
           version: 8
 
-      - run: pnpm install --recursive --frozen-lockfile --strict-peer-dependencies
-      - run: pnpm run build
-      - run: pnpm publish --access public
+      - run: |
+          pnpm install --recursive --frozen-lockfile --strict-peer-dependencies
+          pnpm run build
+          pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 

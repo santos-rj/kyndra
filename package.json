@@ -23,6 +23,13 @@
     "type": "git",
     "url": "git+https://github.com/santos-rj/kyndra.git"
   },
+  "files": [
+    "build",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
   "keywords": [
     "data",
     "structures",

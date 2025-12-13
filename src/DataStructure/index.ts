@@ -12,4 +12,8 @@ export default abstract class DataStructure<T> {
   public get size(): number {
     return this._data.length;
   }
+
+  public toString(): string {
+    return this._data.toString();
+  }
 }

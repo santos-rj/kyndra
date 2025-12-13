@@ -24,4 +24,12 @@ describe("DataStructure", () => {
     expect(sut.data).toEqual(data);
     expect(sut.size).toBe(data.length);
   });
+
+  test("toString should return correct string representation", async () => {
+    const data = [1, 2, 3];
+
+    const sut = new Test(...data);
+
+    expect(sut.toString()).toBe(data.toString());
+  });
 });
